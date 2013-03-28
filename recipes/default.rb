@@ -69,6 +69,7 @@ template "/etc/tomcat6/server.xml" do
   owner "root"
   group "root"
   mode "0644"
+  not_if "test -f /etc/tomcat6/server.xml"
   notifies :restart, resources(:service => "tomcat")
 end
 
